@@ -1,0 +1,4 @@
+usr/lib/libQt5Compositor.so.*
+usr/lib/qt5/plugins/wayland-graphics-integration-server/libxcomposite-egl.so
+usr/lib/qt5/plugins/wayland-graphics-integration-server/libwayland-egl.so
+usr/lib/qt5/plugins/wayland-graphics-integration-server/libdrm-egl-server.so

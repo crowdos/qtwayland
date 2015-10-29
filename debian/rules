@@ -1,0 +1,19 @@
+#!/usr/bin/make -f
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+export CFLAGS := $(shell dpkg-buildflags --get CFLAGS) $(shell dpkg-buildflags --get CPPFLAGS)
+export CXXFLAGS := $(shell dpkg-buildflags --get CXXFLAGS) $(shell dpkg-buildflags --get CPPFLAGS)
+export LDFLAGS := $(shell dpkg-buildflags --get LDFLAGS) -Wl,--as-needed
+
+%:
+	dh $@ --builddirectory=build --sourcedirectory=qtwayland --parallel
+
+override_dh_auto_configure:
+	mkdir build && cd build && qmake CONFIG+=wayland-compositor ../qtwayland/
+
+override_dh_install:
+	rm -f debian/tmp/usr/lib/*.la
+	rm -rf debian/tmp/usr/lib/qt5/examples/
+	dh_install --fail-missing
