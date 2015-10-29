@@ -1,0 +1,3 @@
+[submodule "qtwayland"]
+	path = qtwayland
+	url = git@github.com:qtproject/qtwayland.git
