@@ -38,24 +38,6 @@ Description: QtWayland client development files
  This package contains the development files for QtWayland client
  library.
 
-Package: libqt5waylandcompositor5
-Architecture: any
-Depends: ${misc:Depends}, ${shlibs:Depends}
-Description: QtWayland compositor library
- QtWayland is a Qt 5 module that wraps the functionality of Wayland.
- .
- This package contains the QtWayland compositor library.
-
-Package: libqt5waylandcompositor5-dev
-Architecture: any
-Section: libdevel
-Depends: libqt5waylandcompositor5 (= ${binary:Version}), ${misc:Depends}
-Description: QtWayland compositor development files
- QtWayland is a Qt 5 module that wraps the functionality of Wayland.
- .
- This package contains the development files for QtWayland compositor
- library.
-
 Package: qtwayland5
 Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends}

@@ -12,7 +12,7 @@ export LDFLAGS := $(shell dpkg-buildflags --get LDFLAGS) -Wl,--as-needed
 
 override_dh_auto_configure:
 	touch qtwayland/.git
-	mkdir build && cd build && qmake CONFIG+=wayland-compositor ../qtwayland/
+	mkdir build && cd build && qmake ../qtwayland/
 
 override_dh_install:
 	rm -f debian/tmp/usr/lib/*.la
