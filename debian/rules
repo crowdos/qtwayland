@@ -11,12 +11,18 @@ export LDFLAGS := $(shell dpkg-buildflags --get LDFLAGS) -Wl,--as-needed
 	dh $@ --builddirectory=build --sourcedirectory=qtwayland --parallel
 
 override_dh_auto_configure:
+	touch qtwayland/.git
 	mkdir build && cd build && qmake CONFIG+=wayland-compositor ../qtwayland/
 
 override_dh_install:
 	rm -f debian/tmp/usr/lib/*.la
 	rm -rf debian/tmp/usr/lib/qt5/examples/
 	dh_install --fail-missing
+
+override_dh_auto_clean:
+	dh_auto_clean
+	rm -rf build
+	rm -rf qtwayland/.git
 
 override_dh_strip:
 	dh_strip --dbg-package=qtwayland5-dbg
